@@ -2,8 +2,8 @@
 
     <form method="get" action="https://testapi.openbanking.or.kr/oauth/2.0/authorize" target="_blank">
         <input type="hidden" name="response_type" value="code"/>
-        <input type="hidden" name="client_id" value="{개발자 페이지에서 받은 client_id}"/> <!-- 개발자 페이지에서 받은 client_id -->
-        <input type="hidden" name="redirect_uri" value="{개발자 페이지에 등록한 redirect_uri}"/>
+        <input type="hidden" name="client_id" th:value="${clientId}"/> <!-- 개발자 페이지에서 받은 client_id -->
+        <input type="hidden" name="redirect_uri" th:value="${redirectUrl}"/> <!-- 개발자 페이지에 등록한 redirect_uri -->
         <input type="hidden" name="scope" value="login inquiry transfer"/>
         <input type="hidden" name="state" value="b80BLsfigm9OokPTjy03elbJqRHOfGSY"/>
         <input type="hidden" name="auth_type" value="0"/>
