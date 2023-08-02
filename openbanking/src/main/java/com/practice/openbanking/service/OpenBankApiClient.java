@@ -20,7 +20,9 @@ public class OpenBankApiClient {
          * 헤더의 컨텐트 타입이 application/x-www-form-urlencoded;charset=UTF-8이므로 객체를 집어넣을수 없음.. 그러므로 MultiValueMap 사용 해야함
          */
         HttpEntity httpEntity = generateHttpEntityWithBody(httpHeaders, bankRequestToken.toMultiValueMap());
-
+        System.out.println("여기 실행됐어요!");
+        System.out.println(httpEntity);
+        System.out.println(restTemplate.exchange(base_url + "/token",HttpMethod.POST, httpEntity ,BankResponseToken.class).getBody());
         return restTemplate.exchange(base_url + "/token",HttpMethod.POST, httpEntity ,BankResponseToken.class).getBody();
     }
     private HttpEntity generateHttpEntityWithBody(HttpHeaders httpHeaders, MultiValueMap body) {

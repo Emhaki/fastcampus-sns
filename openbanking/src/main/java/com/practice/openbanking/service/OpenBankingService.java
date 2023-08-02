@@ -12,11 +12,11 @@ public class OpenBankingService {
     private final String useCode;
     private final String clientId;
     private final String client_secret;
-    private static final  String redirect_uri = "http://localhost:8080/test";
+    private static final  String redirect_uri = "http://localhost:8080/gotest";
     private final OpenBankApiClient openBankApiClient;
     public OpenBankingService(@Value("${openbanking.useCode}") String useCode,
                            @Value("${openbanking.client-id}") String clientId,
-                           @Value("${openbanking.client-secret}") String client_secret,
+                           @Value("${openbanking.client-Secret}") String client_secret,
                            OpenBankApiClient openBankApiClient){
         this.useCode = useCode;
         this.clientId = clientId;
