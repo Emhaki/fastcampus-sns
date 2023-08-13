@@ -1,4 +1,4 @@
-package com.fastcampus.sns.configuration;
+package com.fastcampus.sns.configuration.filter;
 
 
 import com.fastcampus.sns.model.User;
