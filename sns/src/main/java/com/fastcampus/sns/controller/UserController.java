@@ -8,6 +8,8 @@ import com.fastcampus.sns.controller.response.UserLoginResponse;
 import com.fastcampus.sns.model.User;
 import com.fastcampus.sns.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -29,5 +31,9 @@ public class UserController {
         return Response.success(new UserLoginResponse(token));
     }
 
+    @GetMapping("/alarm")
+    public Response<Page<>> alarm(Authentication authentication, Pageable pageable) {
+        userService.alarmList(authentication.getName(), pageable);
+    }
 
 }

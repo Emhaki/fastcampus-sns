@@ -8,6 +8,9 @@ import com.fastcampus.sns.repository.UserEntityRepository;
 import com.fastcampus.sns.util.JwtTokenUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,12 +56,11 @@ public class UserService {
             throw  new SimpleSnsApplicationException(ErrorCode.INVALID_PASSWORD, "%s is invalid");
         }
         // 토큰 생성
-        String token = JwtTokenUtils.generateToken(userName, secretKey, expiredTimeMs);
-
-        return token;
+        return JwtTokenUtils.generateToken(userName, secretKey, expiredTimeMs);
     }
 
-    public String login() {
-        return "";
+    public Page<Void> alarmList(String userName, Pageable pageable) {
+        // 유저가 존재하는지
+        return Page.empty();
     }
 }
