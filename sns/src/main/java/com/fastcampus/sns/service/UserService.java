@@ -61,6 +61,9 @@ public class UserService {
 
     public Page<Void> alarmList(String userName, Pageable pageable) {
         // 유저가 존재하는지
+        UserEntity userEntity = userEntityRepository.findByUserName(userName).orElseThrow(() -> new SimpleSnsApplicationException(ErrorCode.USER_NOT_FOUND, String.format("%s not founded", userName)));
+
+
         return Page.empty();
     }
 }
