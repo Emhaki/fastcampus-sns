@@ -32,9 +32,9 @@ public class AlarmEntity {
     @Enumerated(EnumType.STRING)
     private AlarmType alarmType;
 
-    @Type(type = "jsonb")
+    /*@Type(type = "jsonb")
     @Column(columnDefinition = "json")
-    private AlarmArgs args;
+    private AlarmArgs args;*/
 
     @ManyToOne
     @JoinColumn(name = "post_id")
